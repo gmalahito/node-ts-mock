@@ -1,7 +1,14 @@
 import { Response, Request, NextFunction} from 'express';
+import { User } from '../models/user';
 
 export class AuthController
 {
+    public getUsers = (req: Request, res: Response) => {
+        User.findAll<User>({})
+        .then((users: Array<User>) => res.json(users))
+        .catch((err: Error) => res.status(500).json(err));
+    }
+
     public loginForm = (req: Request, res: Response) => {
         if(req.session.username){
             return res.redirect('/home');
@@ -22,12 +29,16 @@ export class AuthController
             return res.render('login',{errors, username, password});
         }
 
-        if(username === 'juan' && password == 'secret'){
-            req.session.username = username;
+        const user = await User.findOne({where: { username: username}});
+
+        if(user && await user.validPassword(password)){
+            req.session.username = user.username;
+            req.session.name = user.name;
+            
             return res.redirect('/home');
         }
 
-        errors.push({msg: `Please enter username and password`});
+        errors.push({msg: `Invalid username or password`});
         return res.render('login',{errors, username, password});
     }
 

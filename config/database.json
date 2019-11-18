@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": null,
+    "database": "nodets_dev",
+    "host": "nodets_dev",
+    "dialect": "sqlite"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "nodets_test",
+    "host": "nodets_test",
+    "dialect": "sqlite"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "nodets_prod",
+    "host": "nodets_prod",
+    "dialect": "sqlite"
+  }
+}

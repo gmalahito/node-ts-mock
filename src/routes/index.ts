@@ -9,17 +9,20 @@ export class Routes
         app.route('/')
             .get(this.authController.loginForm)
             .post(this.authController.loginSubmit);
+
+        app.route('/users')
+            .get(this.authController.getUsers);
         
         app.route('/logout').get(this.authController.logout)
 
         app.route('/home').get((req: Request, res: Response) => {
-            const {username} = req.session;
+            const {username, name} = req.session;
 
             if(!username){
                 res.redirect('/');
             }
 
-            res.render('home', {username});
+            res.render('home', {username, name});
         });
     }
 }
