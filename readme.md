@@ -1,13 +1,11 @@
 # NodeJs Typescript Mock App
 Simple nodejs typescript mocking application
 
-This app for learning purpose for nodejs and typescript.
-
 
 ### Quick start
 To install the application run:
 ```
-npm isntall or yarn install
+npm install or yarn install
 ```
 
 To migrate database: 
