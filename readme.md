@@ -1,8 +1,6 @@
 # NodeJs Typescript Mock App
 Simple nodejs typescript mocking application
 
-This app for learning purpose for nodejs and typescript.
-
 
 ### Getting Started 
 To install the application run:
