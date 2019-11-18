@@ -5,7 +5,7 @@ Simple nodejs typescript mocking application
 ### Getting Started 
 To install the application run:
 ```
-npm isntall or yarn install
+npm install or yarn install
 ```
 
 To start the application run:
