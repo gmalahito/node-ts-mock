@@ -8,15 +8,13 @@ class App {
     public app: express.Application;
     public router: Routes = new Routes();
 
-    constructor() 
-    {
+    constructor() {
         this.app = express();
         this.mountConfig();
         this.mountRoutes();
     }
 
-    private mountConfig(): void
-    {
+    private mountConfig(): void {
         // EJS config
         this.app.use(layouts);
         this.app.set('view engine', 'ejs');
@@ -29,11 +27,11 @@ class App {
         this.app.use(session({
             secret: 'secret',
             resave: true,
-            saveUninitialized: true
-        }))
+            saveUninitialized: true,
+        }));
     }
 
-    private mountRoutes() : void
+    private mountRoutes(): void
     {
         this.router.routes(this.app);
     }

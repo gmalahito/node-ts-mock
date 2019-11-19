@@ -10,13 +10,13 @@ export class User extends Model {
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
 
-  public generateHash = password => {
+  public generateHash = (password) => {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-  };
-  
-  public validPassword = password => {
+  }
+
+  public validPassword = (password) => {
     return bcrypt.compareSync(password, this.password);
-  };
+  }
 
 }
 
@@ -25,26 +25,26 @@ User.init(
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
-      primaryKey: true
+      primaryKey: true,
     },
     name: {
-      type: new DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     username: {
-      type: new DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     password: {
-      type: new DataTypes.STRING,
-      allowNull: false
-    }
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
   {
-    tableName: "Users",
-    modelName: "User",
-    sequelize: database // this bit is important
-  }
+    tableName: 'Users',
+    modelName: 'User',
+    sequelize: database, // this bit is important
+  },
 );
 
 

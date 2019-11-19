@@ -4,14 +4,15 @@
         "tslint:recommended"
     ],
     "jsRules": {},
-    "rules": {},
-    "rulesDirectory": [],
-    "max-line-length": {
-        "options": [180]
-    },
-    "no-consecutive-blank-lines": false,
-    "object-literal-sort-keys": false,
-    "ordered-imports": false,
-    "quotemark": [true, "single"],
-    "variable-name": [true, "allow-leading-underscore"]
+        "rules": {
+        "rulesDirectory": [],
+        "max-line-length": {
+            "options": [180]
+        },
+        "no-consecutive-blank-lines": false,
+        "object-literal-sort-keys": false,
+        "ordered-imports": false,
+        "quotemark": [true, "single"],
+        "variable-name": [true, "allow-leading-underscore"]
+    }
 }

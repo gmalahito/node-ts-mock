@@ -1,9 +1,8 @@
 import {Request, Response} from 'express';
 import {AuthController} from '../controllers/auth.controller';
 
-export class Routes 
-{
-    authController: AuthController = new AuthController();
+export class Routes {
+    private authController: AuthController = new AuthController();
 
     public routes(app: any): void {
         app.route('/')
@@ -12,13 +11,13 @@ export class Routes
 
         app.route('/users')
             .get(this.authController.getUsers);
-        
+
         app.route('/logout').get(this.authController.logout)
 
         app.route('/home').get((req: Request, res: Response) => {
             const {username, name} = req.session;
 
-            if(!username){
+            if (!username) {
                 res.redirect('/');
             }
 
